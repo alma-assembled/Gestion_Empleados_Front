@@ -1,0 +1,93 @@
+.containerForm {
+  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('./../../recursos/gente.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+.form-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedor {
+  width: 100%; /* Ajustar el ancho del contenedor para hacerlo más grande */
+  max-width: 600px;
+  margin: 20px auto;
+  background: rgba(58, 53, 53, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 35px; /* Reducir el padding */
+}
+
+.contenedor h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #ffff;
+}
+
+.contenedor .input-field {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px auto;
+}
+
+.input-field input {
+  width: 80%;
+  height: 40%;
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 25px;
+}
+
+.input-field input::placeholder {
+  color: #fff;
+}
+
+.input-field .icon {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fff;
+}
+
+.contenedor button {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+  text-shadow: none;
+}
+.hidden {
+  display: none;
+}
+
+.modern-title {
+  font-size: 3rem; /* Tamaño de la fuente */
+  color: #d5d8d4; /* Color del texto */
+  text-transform: uppercase; /* Transformación del texto */
+  letter-spacing: 0.1rem; /* Espaciado entre letras */
+  font-family: 'Roboto', sans-serif; /* Familia de fuentes */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra del texto */
+  margin: 1rem 0; /* Margen */
+  transition: transform 0.3s ease, color 0.3s ease; /* Transición para efectos */
+}

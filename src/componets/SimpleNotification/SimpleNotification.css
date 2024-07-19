@@ -1,0 +1,19 @@
+/* SimpleNotification.css */
+.simple-notification {
+  padding: 16px;
+  margin: 16px;
+  border-radius: 4px;
+  background-color:rgb(70, 63, 62) ;
+  color: whitesmoke;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}

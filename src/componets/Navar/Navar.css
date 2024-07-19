@@ -1,0 +1,107 @@
+/*.navbarcontenido {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.navbarcontenido a {
+    color: #044554;
+}
+.navbarcontenido a:hover {
+    color:  #044554;
+}
+.derecha{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}*/
+/* Estilos generales para la barra de navegación */
+/* Estilos generales */
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #343a40; /* Color de fondo */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    color: #ffffff; /* Color del texto */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-item {
+    position: relative;
+}
+
+.navbar-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    font-size: 1rem;
+}
+
+.navbar-link:hover {
+    background-color: #495057; /* Color de fondo al pasar el ratón */
+    border-radius: 4px;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+    display: none; /* Ocultar el menú por defecto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #343a40;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    z-index: 1000;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu.show {
+    display: block; /* Mostrar el menú cuando tiene la clase 'show' */
+}
+
+.dropdown-item {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #495057;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .navbar-menu {
+        flex-direction: column;
+    }
+
+    .navbar-item {
+        margin-top: 0.5rem;
+    }
+}

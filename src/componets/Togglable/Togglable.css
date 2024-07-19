@@ -1,0 +1,32 @@
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(70, 63, 62) ;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+.button:hover {
+    background-color: rgb(160, 146, 144) ;;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(134, 119, 117) ;
+  }
+  
+.button:active {
+    background-color: rgb(122, 111, 109) ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+  }
+  

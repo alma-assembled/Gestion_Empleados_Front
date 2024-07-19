@@ -1,0 +1,17 @@
+
+/* Estilo del contenedor de los elementos */
+.div-conenidos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+/* Estilo de cada elemento EmpleadoEstado */
+.div-contenidos .empleado-estado {
+    flex: 1 1 calc(25% - 20px); /* Ancho adaptable, 25% menos el espacio */
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
