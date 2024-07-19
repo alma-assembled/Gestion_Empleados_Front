@@ -19,7 +19,7 @@ const TableComponent = ({ data }) => {
     const filtered = data.filter(row => 
       row.nombre.toLowerCase().includes(e.target.value.toLowerCase()) ||
       row.puesto.toLowerCase().includes(e.target.value.toLowerCase()) || 
-      row.n_empledo.includes(e.target.value)
+      row.pin.includes(e.target.value)
     );
     setFilteredData(filtered);
   };
@@ -52,7 +52,7 @@ const TableComponent = ({ data }) => {
           {filteredData.map((row, index) =>(
             <tr key={index}>
               <td>{row.nombre}</td>
-              <td>{row.n_empledo}</td>
+              <td>{row.pin}</td>
               <td>{row.puesto}</td>
               <td>
                   <button

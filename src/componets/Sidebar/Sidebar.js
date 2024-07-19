@@ -16,13 +16,31 @@ const Sidebar =() =>{
           </div>
           <ul>
             <li>
-              <NavLink  to="/" exact className=' rounded py-2 w-100 d-inline-block px-3' activeClassName="active"><LiaHomeSolid className="me-2 icon" />Inicio</NavLink>
+              <NavLink  
+                to="/"
+                className={({ isActive }) =>
+                `rounded py-2 w-100 d-inline-block px-3 ${isActive ? 'active' : ''}`}
+                >
+                <LiaHomeSolid className="me-2 icon" />Inicio
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/empleados" exact className=' rounded py-2 w-100 d-inline-block px-3' activeClassName="active" ><LiaUserFriendsSolid className="me-2 icon"/>Empleados</NavLink>
+              <NavLink 
+              to="/empleados" 
+              className={({ isActive }) =>
+                `rounded py-2 w-100 d-inline-block px-3 ${isActive ? 'active' : ''}`}
+               >
+                <LiaUserFriendsSolid className="me-2 icon"/>Empleados
+               </NavLink>
             </li>
             <li>
-              <NavLink to="/empleados-add" exact className=' rounded py-2 w-100 d-inline-block px-3' activeClassName="active" ><IoPersonAddOutline className="me-2 icon"/>Agregar Empleados</NavLink>
+              <NavLink 
+              to="/empleados-add" 
+              className={({ isActive }) =>
+                `rounded py-2 w-100 d-inline-block px-3 ${isActive ? 'active' : ''}`}
+              >
+                <IoPersonAddOutline className="me-2 icon"/>Agregar Empleados
+              </NavLink>
             </li>
           </ul>
       </div>

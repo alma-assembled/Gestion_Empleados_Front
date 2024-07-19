@@ -125,16 +125,15 @@ const CreateEmpleadoForm = () => {
           </label>
           </div>
           <div className="form-espacio">
-            <div className="form-group">
-              <label>Número de Empleado</label>
-              <input
-                type="text"
-                name="n_empleado"
-                value={formData.n_empleado}
-                onChange={handleChange}
-                required
-              />
-            </div>  
+          <div className="form-group">
+            <label>Numero Empleado/ Pin</label>
+            <input
+              type="number"
+              name="pin"
+              value={formData.pin}
+              onChange={handleChange}
+            />
+          </div> 
           </div>
           <div className="form-group">
             <label>Nombre</label>
@@ -199,6 +198,7 @@ const CreateEmpleadoForm = () => {
             <input
               type="text"
               name="usuario"
+              autoComplete="username"
               value={formData.usuario}
               onChange={handleChange}
             />
@@ -206,18 +206,10 @@ const CreateEmpleadoForm = () => {
           <div className="form-group">
             <label>Contraseña</label>
             <input
-              type="password"
+              type="text"
               name="clave"
+              autoComplete="current-password"
               value={formData.clave}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label>Pin</label>
-            <input
-              type="number"
-              name="pin"
-              value={formData.pin}
               onChange={handleChange}
             />
           </div>
