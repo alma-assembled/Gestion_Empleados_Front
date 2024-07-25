@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react';
 import './../CreateEmpleadoForm/CreateEmpleadoForm.css';
 import empleadosService from './../../services/empleados'
 
-const CreateEmpleadoForm = () => {
+const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isEditing }) => {
   const [user, setUser] = useState(null)
   const [puestos, setPuestos] = useState([]);
   const [bancos, setBancos] = useState([]);
@@ -11,7 +11,6 @@ const CreateEmpleadoForm = () => {
     fecha_nacimiento: '',
     genero: '',
     progenitor:false,
-    n_empleado: '',
     pin: '',
     correo: '',
     usuario: '',
@@ -19,11 +18,16 @@ const CreateEmpleadoForm = () => {
     clave: '',
     maquilador: false,
     sueldo: '',
-    fecha_inicio: '',
+    fecha_ingreso: '',
     id_puesto: '',
     id_banco: '',
     clave_interbancaria: '',
   });
+  useEffect(() => {
+    if (initialData) {
+      setFormData(initialData);
+    }
+  }, [initialData]);
 
   // Leer los datos de localStorage al cargar el componente
   useEffect(() => {
@@ -49,8 +53,8 @@ const CreateEmpleadoForm = () => {
       [name]: type === 'checkbox' ? checked : value,
     });
   };
-
-  const handleSubmit = async (e) => {
+  //borrar
+  const handleCrearEmpleado = async (e) => {
     e.preventDefault();
     try {
       const nuevoEmpleado = await empleadosService.crearEmpleado(formData);
@@ -76,6 +80,15 @@ const CreateEmpleadoForm = () => {
       });
     } catch (error) {
       console.error('Error creando empleado:', error);
+    }
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isEditing) {
+      onEditEmployee(formData);
+    } else {
+      onCreateEmployee(formData);
     }
   };
   
@@ -112,17 +125,17 @@ const CreateEmpleadoForm = () => {
         {/* Información Personal */}
         <div className="form-section">
           <h5>Información Personal</h5>
-          <div className="form-group">
-          <label>
-          Maquilador
-          <input
-                type="checkbox"
-                name="maquilador"
-                checked={formData.maquilador}
-                onChange={handleChangeComboBox}
-                className="checkbox-custom checkbox-input"
-              />
-          </label>
+          <div className="form-group alinear">
+            <label>
+              Maquilador
+              <input
+                    type="checkbox"
+                    name="maquilador"
+                    checked={formData.maquilador}
+                    onChange={handleChangeComboBox}
+                    className="checkbox-custom checkbox-input"
+                  />
+            </label>
           </div>
           <div className="form-espacio">
           <div className="form-group">
@@ -170,6 +183,15 @@ const CreateEmpleadoForm = () => {
             </select>
           </div>
           <div className="form-group">
+            <label>Numero Celular</label>
+            <input
+              type="number"
+              name="celular"
+              value={formData.celular}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group alinear">
           <label>
           Padre/Madre
           <input
@@ -249,7 +271,7 @@ const CreateEmpleadoForm = () => {
             <input
               type="date"
               name="fecha_inicio"
-              value={formData.fecha_inicio}
+              value={formData.fecha_ingreso}
               onChange={handleChange}
               required
             />
@@ -267,7 +289,7 @@ const CreateEmpleadoForm = () => {
             >
               <option value="">Seleccione un banco</option>
               {bancos.map((banco) => (
-                <option key={banco.id} value={banco.id}>
+                <option key={banco.id}  value={banco.banco} /*value={banco.id}*/ >
                   {banco.banco}
                 </option>
               ))}

@@ -96,8 +96,8 @@
 }
 
 .sidebar ul li a{
-  color: rgb(233, 233, 233);
-  text-decoration: none;
+    color: rgb(233, 233, 233);
+    text-decoration: none;
     display: flex;
     align-items: center;
     padding: 10px 15px;

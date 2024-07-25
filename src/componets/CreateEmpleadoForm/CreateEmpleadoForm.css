@@ -7,6 +7,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
 }
+.alinear{
+  flex-direction: flex;
+  align-items: flex-start;
+}
 
 .employee-form .form-group {
   display: flex;
@@ -42,7 +46,7 @@
 .employee-form button,
 .employee-form .generar-numero {
   padding: 10px;
-  background-color: #044554;
+  background-color:  #1a0e3c;
   border: none;
   border-radius: 5px;
   color: white;
@@ -54,7 +58,7 @@
 
 .employee-form button:hover,
 .employee-form .generar-numero:hover {
-  background-color: #03383d;
+  background-color:  #1a0e3c;
 }
 
 .employee-form .form-header {

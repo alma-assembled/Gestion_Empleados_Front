@@ -16,6 +16,15 @@ const getAll = () => {
   const request = axios.get(baseUrl,config)
   return request.then(response => response.data)
 }
+const getEmpleadoById = (id) => {
+  const config = {
+    headers: {
+      Authorization: token
+    }
+  }
+  const request = axios.get(`${baseUrl}${id}` ,config)
+  return request.then(response => response.data)
+}
 
 const crearEmpleado = (newObject) => {
   const config = {
@@ -28,14 +37,14 @@ const crearEmpleado = (newObject) => {
   return request.then(response => response.data)
 }
 
-const update = (id, newObject) => {
+const updatedEmpleado = (id, newObject) => {
   const config = {
     headers: {
       Authorization: token
     }
   }
 
-  const request = axios.put(`${baseUrl}/${id}`, newObject, config)
+  const request = axios.put(`${baseUrl}${id}`, newObject, config)
   return request.then(response => response.data)
 }
 
@@ -59,5 +68,15 @@ const getBancosAll = () => {
   return request.then(response => response.data)
 }
 
+const bajaEmpleado = (id, newObject) => {
+  const config = {
+    headers: {
+      Authorization: token
+    }
+  }
 
-export default { getAll, crearEmpleado, update, setToken, getPuestosAll , getBancosAll}
+  const request = axios.put(`${baseUrl}baja-empleado/${id}`, newObject, config)
+  return request.then(response => response.data)
+}
+
+export default { getAll, getEmpleadoById, crearEmpleado, updatedEmpleado, setToken, getPuestosAll , getBancosAll, bajaEmpleado}

@@ -10,7 +10,7 @@
   
   .filter-input {
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
@@ -18,9 +18,9 @@
   
   .filter-button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 12px;
     color: white;
-    background-color: #044554;
+    background-color:  #1a0e3c;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -39,7 +39,7 @@
   }
   
   .custom-table th {
-    background-color: #044554; /* Color de fondo del encabezado */
+    background-color:#1a0e3c; /* Color de fondo del encabezado */
     color: #fff; /* Color del texto del encabezado */
   }
   

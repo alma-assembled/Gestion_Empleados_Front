@@ -19,7 +19,7 @@ const EmpleadosForm = () =>{
     useEffect(() => {
         empleadosService.getAll()
           .then(initialEmpleados => {
-            setEmpleados(initialEmpleados.Empleados); // Actualiza el estado con los empleados recibidos
+            setEmpleados(initialEmpleados.Empleado); // Actualiza el estado con los empleados recibidos
           })
           .catch(error => {
             console.error('Error fetching empleados:', error);
@@ -28,8 +28,7 @@ const EmpleadosForm = () =>{
 
     return (
         <div>
-            <h1 className='title' >Empleados</h1>
-
+            <h1 className='title'>Empleados</h1>
             <TableComponent data={empleados}/>
         </div>
     )

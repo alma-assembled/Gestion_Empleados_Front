@@ -1,10 +1,16 @@
 import React from 'react';
 import './TableComponent.css';
 import  { useEffect, useState } from 'react';
+import { LiaUserEditSolid } from "react-icons/lia";
+import { MdDeleteOutline } from "react-icons/md";
+import empleadosService from './../../services/empleados'
+import {useNavigate } from 'react-router-dom';
 
 const TableComponent = ({ data }) => {
   const [filter, setFilter] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const navigate = useNavigate();
+
 
   // useEffect para inicializar los datos una vez que se reciba 'data'
   useEffect(() => {
@@ -22,6 +28,24 @@ const TableComponent = ({ data }) => {
       row.pin.includes(e.target.value)
     );
     setFilteredData(filtered);
+  };
+
+  const deleteUser = (id) => {
+    // Lógica para eliminar el usuario
+
+    console.log("Eliminar usuario con ID:", id);
+    // Aquí podrías hacer una llamada a la API para eliminar el usuario del servidor
+    empleadosService.bajaEmpleado(id);
+    // Actualizar el estado local después de eliminar el usuario
+    const updatedData = filteredData.filter(user => user.id !== id);
+    setFilteredData(updatedData);
+    alert("Empleados dado de baja corecamente.");
+  };
+
+  const editUser = (id) => {
+    console.log("Editar usuario con ID:", id);
+    // Aquí podrías hacer una llamada a la API para eliminar el usuario del servidor
+    navigate(`/empleados-add/${id}`);
   };
 
   return (
@@ -56,22 +80,14 @@ const TableComponent = ({ data }) => {
               <td>{row.puesto}</td>
               <td>
                   <button
-                    className="btn btn-success  btn-sm btn-block"
-                    /*onClick={(e) => editUser(user._id)}**/
-                  >
-                    ver
-                  </button>
-                  <button
-                    className="btn btn-secondary btn-sm btn-block"
-                    /*onClick={(e) => editUser(user._id)}**/
-                  >
-                    Editar
+                    className="btn btn-success btn-sm btn-block"
+                    onClick={(e) => editUser(row.id)}
+                  ><LiaUserEditSolid />
                   </button>
                   <button
                     className="btn btn-danger btn-sm btn-block"
-                    /*onClick={(e) => deleteUser(user._id)}*/
-                  >
-                    Baja
+                    onClick={(e) => deleteUser(row.id)}
+                  ><MdDeleteOutline />
                   </button>
                 </td>
             </tr>
