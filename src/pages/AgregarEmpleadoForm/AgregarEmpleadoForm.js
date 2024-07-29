@@ -1,7 +1,7 @@
 import CreateEmpleadoForm from './../../componets/CreateEmpleadoForm/CreateEmpleadoForm'
 import empleadosService from './../../services/empleados'
-import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
+import  { useState,useEffect } from 'react'
 
 const EmpleadosForm = () =>{
   const { id } = useParams();
@@ -14,7 +14,6 @@ const EmpleadosForm = () =>{
       const fetchEmpleado = async () => {
         try {
           const empleadoData = await empleadosService.getEmpleadoById(id);
-          console.log(empleadoData.Empleado+ " ddd" )
           setEmpleado(empleadoData.Empleado);
         } catch (error) {
           console.error('Error fetching empleado:', error);
@@ -29,7 +28,7 @@ const EmpleadosForm = () =>{
       const createdEmployee = await empleadosService.crearEmpleado(newEmployee);
       setEmpleados([...empleados, createdEmployee]);
       console.log('Nuevo empleado creado:', createdEmployee);
-      navigate('/');
+      navigate('/empleados');
     } catch (error) {
       console.error('Error creando empleado:', error);
     }
@@ -37,10 +36,10 @@ const EmpleadosForm = () =>{
 
   const handleEditEmployee = async (updatedEmployee) => {
     try {
-      await empleadosService.actualizarEmpleado(id, updatedEmployee);
+      await empleadosService.updatedEmpleado(id, updatedEmployee);
       setEmpleados(empleados.map(emp => emp.id === id ? updatedEmployee : emp));
       console.log('Empleado actualizado:', updatedEmployee);
-      navigate('/');
+      navigate('/empleados');
     } catch (error) {
       console.error('Error actualizando empleado:', error);
     }

@@ -46,13 +46,22 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
     });
   };
 
-  const handleChangeComboBox = (e) => {
+  /*const handleChangeComboBox = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value,
     });
-  };
+  };*/
+
+  const handleChangeComboBox = (e) => {
+    const { name, checked } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: checked
+    }));
+};
+
   //borrar
   const handleCrearEmpleado = async (e) => {
     e.preventDefault();
@@ -73,7 +82,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
         clave: '',
         maquilador: false,
         sueldo: '',
-        fecha_inicio: '',
+        fecha_ingreso: '',
         id_puesto: '',
         id_banco: '',
         clave_interbancaria: '',
@@ -84,6 +93,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
   };
   
   const handleSubmit = async (e) => {
+    console.log(formData);
     e.preventDefault();
     if (isEditing) {
       onEditEmployee(formData);
@@ -209,7 +219,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
           <div className="form-group">
             <label>Correo</label>
             <input
-              type="email"
+              type="text"
               name="correo"
               value={formData.correo}
               onChange={handleChange}
@@ -270,7 +280,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             <label>Fecha de Ingreso</label>
             <input
               type="date"
-              name="fecha_inicio"
+              name="fecha_ingreso"
               value={formData.fecha_ingreso}
               onChange={handleChange}
               required

@@ -8,17 +8,22 @@ import Navar from './componets/Navar/Navar'
 import HomeForm from './pages/HomeForm/HomeForm'
 import EmpleadosForm from './pages/EmpleadosForm/EmpleadosFrom'
 import AgregarEmpleadoForm from'./pages/AgregarEmpleadoForm/AgregarEmpleadoForm'
-
+import { setupInterceptors } from './services/apiClient';
+import { useNavigate } from 'react-router-dom';
 //import empleadosService from './services/empleados'
 
 import './App.css'
 
-function App() {
+const AppContent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
-  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setupInterceptors(navigate);
+  }, [navigate]);
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedRhAppUser')
@@ -60,8 +65,8 @@ function App() {
       <div>
         {
           user
-            ? 
-            <Router>
+            ? (
+            
               <div className='conainer'>
                 <Sidebar />
                 <div  className="nav">
@@ -75,8 +80,8 @@ function App() {
                   </Routes>
                 </div>
               </div>
-            </Router>
-            :
+            )
+            : 
              <Login
                 username={username}
                 password={password}
@@ -86,7 +91,7 @@ function App() {
                   ({target}) => setPassword(target.value)
                 }
                 handleSubmit={handleLogin}
-              />
+              /> 
         }
         <Notification message={errorMessage} />
         </div>
@@ -94,4 +99,10 @@ function App() {
   );
 }
 
-export default App
+const App = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
+
+export default App;
