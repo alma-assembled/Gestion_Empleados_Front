@@ -77,6 +77,7 @@ const AppContent = () => {
                     <Route path='/'  exact="true" element={<HomeForm/>} />
                     <Route path='/empleados'  exact="true" element={<EmpleadosForm/>} />
                     <Route path='/empleados-add/:id?' exact="true" element={<AgregarEmpleadoForm/>} />
+                    <Route path='/reingreso' exact="true" element={<AgregarEmpleadoForm/>} />
                   </Routes>
                 </div>
               </div>

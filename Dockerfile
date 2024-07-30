@@ -16,7 +16,7 @@ COPY . .
 #RUN npm run build
 
 # Exponer el puerto en el que Nginx correrá
-EXPOSE 3030
+EXPOSE 3001
 
 # Comando por defecto para ejecutar Nginx
 CMD ["npm", "start"]

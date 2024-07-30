@@ -3,7 +3,7 @@ import { apiClient } from './apiClient'
 import Swal from 'sweetalert2';
 
 
-const baseUrl = 'http://192.168.1.200:5050/empleados/'//'http://127.0.0.1:5000/empleados/'
+const baseUrl ='http://192.168.1.200:5050' //'http://127.0.0.1:5050/empleados/' // 'http://192.168.1.200:5050/empleados/'//'http://127.0.0.1:5000/empleados/'
 
 let token = null
 

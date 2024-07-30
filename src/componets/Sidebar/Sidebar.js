@@ -4,6 +4,8 @@ import { LiaHomeSolid , LiaUserFriendsSolid } from "react-icons/lia";
 import { IoPersonAddOutline } from "react-icons/io5";
 import './../Sidebar/Sidebar.css'
 import logo from '../../recursos/assembled.jpg';
+import { TbUserOff } from "react-icons/tb";
+
 const Sidebar =() =>{
   return(
       <div className="sidebar">
@@ -42,6 +44,7 @@ const Sidebar =() =>{
                 <IoPersonAddOutline className="me-2 icon"/>Agregar Empleados
               </NavLink>
             </li>
+            
           </ul>
       </div>
   )
