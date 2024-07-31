@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // Crear una instancia de axios
 const apiClient = axios.create({
-    baseURL: 'http://192.168.1.200:5050', //'http://127.0.0.1:5050',   
+    //baseURL: 'http://127.0.0.1:5050',
+    baseURL: 'http://192.168.1.200:5050',
     headers: {
         'Content-Type': 'application/json',
     }

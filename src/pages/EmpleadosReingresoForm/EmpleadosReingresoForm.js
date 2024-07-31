@@ -2,7 +2,7 @@ import TableComponent from '../../componets/TableComponent/TableComponent'
 import empleadosService from '../../services/empleados'
 import React, { useState, useEffect } from 'react'
    
-const EmpleadosForm = () =>{
+const EmpleadosReingresoForm = () =>{
     const [user, setUser] = useState(null)
     const [empleados, setEmpleados] = useState([])
 
@@ -33,4 +33,4 @@ const EmpleadosForm = () =>{
         </div>
     )
 }
-export default EmpleadosForm
+export default EmpleadosReingresoForm
