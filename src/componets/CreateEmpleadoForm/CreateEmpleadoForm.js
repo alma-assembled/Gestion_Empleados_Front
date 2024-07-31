@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react';
 import './../CreateEmpleadoForm/CreateEmpleadoForm.css';
 import empleadosService from './../../services/empleados'
 
-const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isEditing }) => {
+const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isEditing , isReingreso, onReingreso}) => {
   const [user, setUser] = useState(null)
   const [puestos, setPuestos] = useState([]);
   const [bancos, setBancos] = useState([]);
@@ -93,13 +93,18 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
   };
   
   const handleSubmit = async (e) => {
-    console.log(formData);
+    //console.log(formData);
     e.preventDefault();
     if (isEditing) {
-      onEditEmployee(formData);
+      if (isReingreso){
+        onReingreso(formData);
+      }else{
+        onEditEmployee(formData);
+     }
     } else {
-      onCreateEmployee(formData);
+        onCreateEmployee(formData);
     }
+
   };
   
   useEffect(() => {
@@ -155,6 +160,19 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
               name="pin"
               value={formData.pin}
               onChange={handleChange}
+              required
+              onInput={(event) => {
+                const regex = /^\d{5}$/; // Expresión regular para exactamente 5 dígitos
+                const newValue = event.target.value.replace(/[^0-9]/g, '');
+            
+                if (regex.test(newValue)) {
+                  event.target.value = newValue;
+                } else {
+                  event.target.value = newValue.slice(0, 5); // Limita a 5 dígitos si excede
+                  // Mostrar mensaje de error o realizar otra acción
+                  console.error('Solo se permiten 5 dígitos');
+                }
+              }}
             />
           </div> 
           </div>
@@ -163,7 +181,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             <input
               type="text"
               name="nombre"
-              value={formData.nombre}
+              value={formData.nombre.toUpperCase()}
               onChange={handleChange}
               required
             />

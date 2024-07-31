@@ -1,5 +1,5 @@
-import CreateEmpleadoForm from './../../componets/CreateEmpleadoForm/CreateEmpleadoForm'
-import empleadosService from './../../services/empleados'
+import CreateEmpleadoForm from '../../componets/CreateEmpleadoForm/CreateEmpleadoForm'
+import empleadosService from '../../services/empleados'
 import { useParams, useNavigate } from 'react-router-dom';
 import  { useState,useEffect } from 'react'
 
@@ -8,7 +8,7 @@ const EmpleadosForm = () =>{
   const [empleado, setEmpleado] = useState(null);
   const [empleados, setEmpleados] = useState([]);
   const navigate = useNavigate();
-  const isReingreso = false;
+  const isReingreso = true;
 
   useEffect(() => {
     if (id) {
@@ -39,20 +39,20 @@ const EmpleadosForm = () =>{
     try {
       await empleadosService.updatedEmpleado(id, updatedEmployee);
       setEmpleados(empleados.map(emp => emp.id === id ? updatedEmployee : emp));
-      //console.log('Empleado actualizado:', updatedEmployee);
+      console.log('Empleado actualizado:', updatedEmployee);
       navigate('/empleados');
     } catch (error) {
-      console.error('Error actualizando empleado:', error);
+      console.error('Error actualizando empleado::', error);
     }
   };
   const handlReingresoEmployee = async (updatedEmployee) => {
     try {
       await empleadosService.ReingresoEmpleado(id, updatedEmployee);
       setEmpleados(empleados.map(emp => emp.id === id ? updatedEmployee : emp));
-      //console.log('Empleado actualizado:', updatedEmployee);
+      //console.log('Empleado con reingreso:', updatedEmployee);
       navigate('/empleados');
     } catch (error) {
-      console.error('Error actualizando empleado:', error);
+      console.error('Error reingresando empleado:', error);
     }
   };
 

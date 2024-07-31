@@ -44,7 +44,15 @@ const Sidebar =() =>{
                 <IoPersonAddOutline className="me-2 icon"/>Agregar Empleados
               </NavLink>
             </li>
-            
+            <li>
+              <NavLink 
+              to="/reingreso" 
+              className={({ isActive }) =>
+                `rounded py-2 w-100 d-inline-block px-3 ${isActive ? 'active' : ''}`}
+              >
+                <TbUserOff className="me-2 icon"/>Reingreso Empleados
+              </NavLink>
+            </li>
           </ul>
       </div>
   )

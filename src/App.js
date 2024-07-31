@@ -8,6 +8,8 @@ import Navar from './componets/Navar/Navar'
 import HomeForm from './pages/HomeForm/HomeForm'
 import EmpleadosForm from './pages/EmpleadosForm/EmpleadosFrom'
 import AgregarEmpleadoForm from'./pages/AgregarEmpleadoForm/AgregarEmpleadoForm'
+import AgregarEmpleadoFormReingreso from'./pages/AgregarEmpleadoFormReingreso/AgregarEmpleadoFormReingreso'
+import EmpleadosReingresoForm from './pages/EmpleadosReingresoForm/EmpleadosReingresoForm'
 import { setupInterceptors } from './services/apiClient';
 import { useNavigate } from 'react-router-dom';
 //import empleadosService from './services/empleados'
@@ -77,7 +79,8 @@ const AppContent = () => {
                     <Route path='/'  exact="true" element={<HomeForm/>} />
                     <Route path='/empleados'  exact="true" element={<EmpleadosForm/>} />
                     <Route path='/empleados-add/:id?' exact="true" element={<AgregarEmpleadoForm/>} />
-                    <Route path='/reingreso' exact="true" element={<AgregarEmpleadoForm/>} />
+                    <Route path='/empleados-reingreso/:id?' exact="true" element={<AgregarEmpleadoFormReingreso/>} />
+                    <Route path='/reingreso' exact="true" element={<EmpleadosReingresoForm/>} />
                   </Routes>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import TableComponent from '../../componets/TableComponent/TableComponent'
+import TableComponentInactivo from '../../componets/TableComponentInactivo/TableComponentInactivo'
 import empleadosService from '../../services/empleados'
 import React, { useState, useEffect } from 'react'
    
@@ -17,7 +17,7 @@ const EmpleadosReingresoForm = () =>{
     }, [])
 
     useEffect(() => {
-        empleadosService.getAll()
+        empleadosService.getAll_Inactivos()
           .then(initialEmpleados => {
             setEmpleados(initialEmpleados.Empleado); // Actualiza el estado con los empleados recibidos
           })
@@ -28,8 +28,8 @@ const EmpleadosReingresoForm = () =>{
 
     return (
         <div>
-            <h1 className='title'>Empleados</h1>
-            <TableComponent data={empleados}/>
+            <h1 className='title'>Empleados Inactivos</h1>
+            <TableComponentInactivo data={empleados}/>
         </div>
     )
 }
