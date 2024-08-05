@@ -19,7 +19,9 @@ const Cumpleaneros = () => {
     const fetchCumpleaneros = async () => {
       try {
         const data = await empleadosService.getCumpleaAll();
-        setCumpleaneros(data.data);
+        if (data.data !== "NOTFOUND") {
+          setCumpleaneros(data.data);
+        } 
       } catch (error) {
         console.error('Error fetching cumpleañeros:', error);
       }

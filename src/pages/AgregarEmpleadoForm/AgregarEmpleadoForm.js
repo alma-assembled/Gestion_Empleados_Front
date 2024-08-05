@@ -59,7 +59,7 @@ const EmpleadosForm = () =>{
   
   return (
       <div className="app-container">
-        <h1 className='title' >Agregar Empleado</h1>
+        <h1 className='title' > Empleado</h1>
         <CreateEmpleadoForm 
         isEditing={!!id}
         isReingreso={isReingreso}

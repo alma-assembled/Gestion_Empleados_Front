@@ -142,7 +142,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
           <h5>Información Personal</h5>
           <div className="form-group alinear">
             <label>
-              Maquilador
+              Maquilador<label className='text-danger'>*</label>
               <input
                     type="checkbox"
                     name="maquilador"
@@ -154,7 +154,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
           </div>
           <div className="form-espacio">
           <div className="form-group">
-            <label>Numero Empleado/ Pin</label>
+            <label>Numero Empleado/ Pin<label className='text-danger'>*</label></label>
             <input
               type="number"
               name="pin"
@@ -177,7 +177,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
           </div> 
           </div>
           <div className="form-group">
-            <label>Nombre</label>
+            <label>Nombre<label className='text-danger'>*</label></label>
             <input
               type="text"
               name="nombre"
@@ -187,7 +187,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             />
           </div>
           <div className="form-group">
-            <label>Fecha de Nacimiento</label>
+            <label>Fecha de Nacimiento<label className='text-danger'>*</label></label>
             <input
               type="date"
               name="fecha_nacimiento"
@@ -197,7 +197,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             />
           </div>
           <div className="form-group">
-            <label>Genero</label>
+            <label>Genero<label className='text-danger'>*</label></label>
             <select
               name="genero"
               value={formData.genero}
@@ -221,7 +221,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
           </div>
           <div className="form-group alinear">
           <label>
-          Padre/Madre
+          Padre/Madre<label className='text-danger'>*</label>
           <input
                 type="checkbox"
                 name="progenitor"
@@ -269,7 +269,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
         <div className="form-section">
           <h5>Información de Trabajo</h5>
           <div className="form-group">
-            <label>Puesto</label>
+            <label>Puesto<label className='text-danger'>*</label></label>
             <select
               name="id_puesto"
               value={formData.id_puesto}
@@ -285,7 +285,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             </select>
           </div>
           <div className="form-group">
-            <label>Sueldo</label>
+            <label>Sueldo<label className='text-danger'>*</label></label>
             <input
               type="number"
               name="sueldo"
@@ -295,7 +295,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             />
           </div>
           <div className="form-group">
-            <label>Fecha de Ingreso</label>
+            <label>Fecha de Ingreso<label className='text-danger'>*</label></label>
             <input
               type="date"
               name="fecha_ingreso"
@@ -308,7 +308,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
         <div className="form-section">
           <h5>Información Bancaria</h5>
           <div className="form-group">
-            <label>Banco</label>
+            <label>Banco<label className='text-danger'>*</label></label>
             <select
               name="id_banco"
               value={formData.id_banco}
@@ -324,7 +324,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
             </select>
           </div>
           <div className="form-group">
-            <label>Clave Interbancaria</label>
+            <label>Clave Interbancaria<label className='text-danger'>*</label></label>
             <input
               type="text"
               name="clave_interbancaria"
@@ -337,7 +337,7 @@ const CreateEmpleadoForm = ({ onCreateEmployee, onEditEmployee, initialData, isE
         </div>
         
       </div>
-      <button type="submit">Agregar Empleado</button>
+      <button type="submit">Guardar</button>
     </form>
   );
 };
